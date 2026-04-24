@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang=de>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Unterkünfte</title>
+		<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""/>
+		<script 
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin="">
+		</script>
+		<style>
+			/* Map bei der Seite Unterkünfte */
+			#map {
+				height: 500px;
+				margin-bottom: 2em; /* optional, für Abstand nach unten */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="header-container">
+				<!-- Logo links und anklickbar -->
+				<a href="index.html" class="logo">
+					<img
+						src="img/logo.png"
+						alt="Logo" />
+				</a>
+				<!-- Navigation rechts -->
+				<nav>
+					<ul>
+						<li class="has-submenu">
+							<a href="#">Reiseberichte <span class="arrow"></a>
+							<ul>
+								<li> <a href="alle_reisen.html">Alle Reisen</a> </li>
+								<li class="has-submenu">
+									<a href="#">Radreisen <span class="arrow"></a>
+									<ul>
+										<li> <a href="radreise_nahe_rhein.html">Nahe- und Rheinradweg</a> </li>
+										<li> <a href="nordseekuestenradweg_2022.html">Nordseeküstenradweg NL & DE</a> </li>
+										<li> <a href="nordseekuestenradweg_haervejen.html">Nordseeküstenradweg DK & Hærvejen</a> </li>
+										<li> <a href="ochsenweg.html">Ochsenweg</a> </li>
+										<li> <a href="trient_verona.html">Trient - Verona</a> </li>
+										<li> <a href="weserradweg_2020.html">Weserradweg</a> </li>
+									</ul>
+								</li>
+								<li class="has-submenu">
+									<a href="#">Wanderungen <span class="arrow"></a>
+									<ul>
+										<li> <a href="altmuehltal_panoramaweg.html">Altmühltal-Panoramaweg</a> </li>
+										<li> <a href="mullerthal_trail.html">Mullerthal Trail</a> </li>
+										<li> <a href="skaneleden_sl3_sl4.html">Skåneleden SL3 & SL4</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li> <a href="ausruestung.html">Ausrüstung</a> </li>
+						<li> <a href="unterkuenfte.html">Unterkünfte</a> </li>
+					</ul>
+				</nav>
+				</div>
+			</header>
+			<main>
+				<div class="hero">
+					<img src="img/nordseekuestenradweg_2022/banner.jpg" alt="" class="hero-image">
+					<div class="hero-gradient"></div>
+					<div class ="hero-content">
+						<h1>Unterkünfte</h1>
+						<p>Alle Camping- und Trekkingplätze sowie sonstige Unterkünfte</p>
+					</div>
+				</div>
+				<section class="main-content">
+					<div>
+						<p>Einleitungstext, wie die Karte funktioniert</p>
+						<p>Unter der Karte findet ihr eine Auflistung der nützliche Links/Apps, z.B. für Shelter oder kostenlose Trekkingplätze</p>
+					</div>
+					<div id="map"></div>
+					<div>
+						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  
+
+						Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+
+						Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.  
+
+						Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</section>
+			</main>
+			<footer>
+				<div class="footer-content">
+					<p>© 2026 Franziska Dickschas</p>
+					<a href="">Impressum</a>
+				</div>
+			</footer>
+		</div>
+		<button id="backToTop" title="Nach oben scrollen">⬆</button>
+		<script>
+			// Button nach oben scrollen //
+			const backToTopButton = document.getElementById("backToTop");
+
+			// Button sofort anzeigen, sobald minimal gescrollt wurde
+			window.addEventListener("scroll", function () {
+				if (window.scrollY > 0) {
+					backToTopButton.style.display = "block";
+				} else {
+					backToTopButton.style.display = "none";
+				}
+			});
+
+			// Beim Klick sanft nach oben scrollen
+			backToTopButton.addEventListener("click", () => {
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth"
+				});
+			});
+		</script>
+		<script>
+			// Pfeil bei Navigation //
+			document.querySelectorAll('nav .has-submenu > a').forEach(function (link) {
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+
+					this.parentElement.classList.toggle('open');
+					console.log('open umgeschaltet:', this.textContent);
+				});
+			});
+
+			document.addEventListener('click', function () {
+				document.querySelectorAll('nav .open').forEach(function (item) {
+					item.classList.remove('open');
+				});
+			});
+		</script>
+		<script>
+			// 1. Karte initialisieren und auf London zentrieren
+			var map = L.map('map').setView([53.55, 10.00], 12);
+			
+			// 2. OpenStreetMap-Kachel-Layer hinzufügen
+				L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					maxZoom: 19,
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+				}).addTo(map);
+
+			// 3. Beispiel: Marker hinzufügen
+				var marker = L.marker([53.55, 10.00]).addTo(map);
+				marker.bindPopup("<b>Hamburg</b><br>Ich bin ein Popup.").openPopup();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang=de>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Nordseeküstenradweg NL & DE</title>
+		<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<link href="reiseberichte.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="header-container">
+				<!-- Logo links und anklickbar -->
+				<a href="index.html" class="logo">
+					<img
+						src="img/logo.png"
+						alt="Logo" />
+				</a>
+				<!-- Navigation rechts -->
+				<nav>
+					<ul>
+						<li class="has-submenu">
+							<a href="#">Reiseberichte <span class="arrow"></a>
+							<ul>
+								<li> <a href="alle_reisen.html">Alle Reisen</a> </li>
+								<li class="has-submenu">
+									<a href="#">Radreisen <span class="arrow"></a>
+									<ul>
+										<li> <a href="radreise_nahe_rhein.html">Nahe- und Rheinradweg</a> </li>
+										<li> <a href="nordseekuestenradweg_2022.html">Nordseeküstenradweg NL & DE</a> </li>
+										<li> <a href="nordseekuestenradweg_haervejen.html">Nordseeküstenradweg DK & Hærvejen</a> </li>
+										<li> <a href="ochsenweg.html">Ochsenweg</a> </li>
+										<li> <a href="trient_verona.html">Trient - Verona</a> </li>
+										<li> <a href="weserradweg_2020.html">Weserradweg</a> </li>
+									</ul>
+								</li>
+								<li class="has-submenu">
+									<a href="#">Wanderungen <span class="arrow"></a>
+									<ul>
+										<li> <a href="altmuehltal_panoramaweg.html">Altmühltal-Panoramaweg</a> </li>
+										<li> <a href="mullerthal_trail.html">Mullerthal Trail</a> </li>
+										<li> <a href="skaneleden_sl3_sl4.html">Skåneleden SL3 & SL4</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li> <a href="ausruestung.html">Ausrüstung</a> </li>
+						<li> <a href="unterkuenfte.html">Unterkünfte</a> </li>
+					</ul>
+				</nav>
+				</div>
+			</header>
+			<main>
+				<div class="hero">
+					<img src="img/nordseekuestenradweg_2022/banner.jpg" alt="" class="hero-image">
+					<div class="hero-gradient"></div>
+					<div class ="hero-content">
+						<h1>Nordseeküstenradweg - Von Rotterdam nach Hamburg</h1>
+						<p>Juli 2022</p>
+					</div>
+				</div>
+				<div class="main-content">
+					<section class="Drittelspalte_rechts">
+						<div class="textspalte">
+							<h2>Der Nordseeküstenradweg - Meine erste eigene Radreise</h2>
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  
+
+							Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+
+							Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.  
+
+							Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						</div>
+					</section>
+				</div>
+			</main>
+			<footer>
+				<div class="footer-content">
+					<p>© 2026 Franziska Dickschas</p>
+					<a href="">Impressum</a>
+				</div>
+			</footer>
+		</div>
+		<button id="backToTop" title="Nach oben scrollen">⬆</button>
+		<script>
+			const backToTopButton = document.getElementById("backToTop");
+
+			// Button sofort anzeigen, sobald minimal gescrollt wurde
+			window.addEventListener("scroll", function () {
+				if (window.scrollY > 0) {
+					backToTopButton.style.display = "block";
+				} else {
+					backToTopButton.style.display = "none";
+				}
+			});
+
+			// Beim Klick sanft nach oben scrollen
+			backToTopButton.addEventListener("click", () => {
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth"
+				});
+			});
+		</script>
+		<script>
+		document.querySelectorAll('nav .has-submenu > a').forEach(function (link) {
+			link.addEventListener('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				this.parentElement.classList.toggle('open');
+				console.log('open umgeschaltet:', this.textContent);
+			});
+		});
+
+		document.addEventListener('click', function () {
+			document.querySelectorAll('nav .open').forEach(function (item) {
+				item.classList.remove('open');
+			});
+		});
+		</script>
+	</body>
+</html>

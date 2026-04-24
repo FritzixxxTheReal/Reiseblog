@@ -1,0 +1,21 @@
+/* Spalten für die Seiten mit dne Reiseberichten */
+			.Drittelspalte_rechts {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 30px;
+				align-items: start;
+				margin-bottom: 40px;
+			}
+			.textspalte {
+				width: 100%;
+			}
+			.bildspalte img {
+				width: 70%;
+				height: auto;
+				display: block;
+				margin: 0 auto 20px auto;
+			}
+			.bildspalte figcaption {
+				font-size: 0.85em;
+				text-align: center;
+			}

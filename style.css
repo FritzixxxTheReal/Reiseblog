@@ -1,0 +1,284 @@
+/* style.css */
+			/* Standardfarbe für den Rest der Seite */
+			body {
+				height: 100%;
+				color: black;
+				font-family: "Funnel Sans", sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.wrapper {
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh; /* für alle modernen Browser */
+				min-height: 100dvh; /* für mobile Browser, optional */
+			}
+			
+			/* Links im Main */
+			main a {
+				color: #003200;
+			}
+			
+			/* Header & Footer */
+			header, footer {
+				background-color: #003200;
+				color: white;
+				padding: 5px;
+			}
+			
+			/* Links in Header und Footer*/
+			header a, footer a {
+				color: white;
+				text-decoration: none;
+			}
+			
+			/* Header-Grundstruktur */
+			.header-container {
+				display: flex; /* Flexbox für horizontale Anordnung */
+				justify-content: space-between; /* Logo links, Menü rechts */
+				align-items: center; /* vertikal zentriert */
+			}
+						
+			/* Header zusätzlich */
+			header {
+				position: relative;
+				z-index: 1000;
+			}
+			
+			/* Footer zusätzlich */
+			footer {
+				display: flex;
+				align-items: center; /* vertikal zentriert */
+				justify-content: flex-end; /* ganz rechts im Footer */
+				height: 90px;
+			}
+			
+			/* Inhalt des Footers */
+			.footer-content {
+				display: flex;
+				justify-content: flex-end; /* rechtsbündig */
+				align-items: center; /* vertikal zentriert */
+				gap: 30px; /* Abstand zwischen den Elementen */
+				margin-right: 10px; /* Abstand zum rechten Seitenrand */
+				height: 100%; /* optional für vertikale Zentrierung */
+			}
+				
+			/* Logo */
+			.logo img {
+				height: 70px; /* Höhe des Logos */
+				padding-left: 10px;
+			}
+/* Block: Navigation */			
+			/* Navigation */
+			nav {
+				position: relative;
+			}
+
+			nav ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			nav > ul {
+				display: flex;
+				gap: 20px;
+				align-items: center;
+			}
+
+			nav li {
+				position: relative;
+			}
+
+			nav a {
+				display: block;
+				color: white;
+				text-decoration: none;
+				padding: 8px 12px;
+			}
+
+			/* Alle Untermenüs zunächst ausblenden */
+			nav ul ul {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				min-width: 220px;
+				background-color: #003200;
+				padding: 8px 0;
+				z-index: 2000;
+			}
+
+			/* Untermenü anzeigen */
+			nav li.open > ul {
+				display: block;
+			}
+
+			/* Einträge im Untermenü */
+			nav ul ul li {
+				width: 100%;
+			}
+
+			nav ul ul a {
+				display: block;
+				width: 100%;
+				box-sizing: border-box;
+				padding: 8px 16px;
+				white-space: nowrap;
+			}
+
+			/* Zweite Ebene unter dem jeweiligen Menüpunkt */
+			nav ul ul li.has-submenu > ul {
+				position: static;
+				display: none;
+				min-width: 0;
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				background-color: #003200;
+			}
+			
+			nav ul ul li.has-submenu > ul li {
+				width: 100%;
+			}
+			
+			/* Zweite Ebene bei Klick sichtbar */
+			nav ul ul li.has-submenu.open > ul {
+				display: block;
+			}
+			
+			/* Die zweite Ebene leicht einrücken */
+			nav ul ul li.has-submenu > ul a {
+				padding-left: 32px;
+			}
+			
+			/* Hover */
+			nav a:hover {
+				background-color: #004d00;
+			}
+			
+			/* Überschrift Abstand nach oben */
+			h1 {
+				margin-top: 40px;
+			}
+			
+			/* Pfeile bei Drop-Down */
+			.arrow {
+				display: inline-block;
+				margin-left: 6px;
+				font-size: 1em;
+				transition: transform 0.2s;
+				user-select: none;
+			}
+			
+			.has-submenu > a .arrow::after {
+				content: "▼";
+				display: inline-block;
+				font-size: 0.75em; /* etwas kleiner */
+				vertical-align: middle;
+				position: relative;
+				top: -2px; /* Verschiebt den Pfeil um 2 nach oben */
+				transition: transform 0.2s;
+			}
+			
+			/* Wenn das Untermenü offen ist, Pfeil drehen */
+			.has-submenu.open > a .arrow:after {
+				transform: rotate(180deg);
+				display: inline-block;
+			}
+
+/* Block: Banner */
+			/* Main */
+			main {
+				position: relative; /* wichtig für Hintergrundbild */
+				padding: 0px;
+				flex: 1 0 auto; 
+			}
+			
+			/* Main-Inhalt */
+			.main-content {
+				padding-left: 325px;
+				padding-right: 325px;
+				padding-top: 30px;
+				padding-bottom: 60px;
+			}
+			
+			/* Banner */
+			.hero {
+				position: relative;
+				width: 100%;
+				height: 250px;
+				overflow: hidden;
+			}
+			
+			/* Hintergrundbild im Banner */
+			.hero-image {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover; /* Bild füllt den Bereich aus */
+				object-position: center center; /* Bild zentrieren */
+				z-index: 0; /* liegt hinter dem Inhalt */
+				pointer-events: none; /* Bild ist nicht anklickbar */
+			}
+			
+			/* Hintergrundbild im Banner Schatten */
+			.hero-gradient {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 60%; /* wie hoch der Verlauf sein soll */
+				z-index: 1;
+				pointer-events: none;
+				background: linear-gradient(
+					to top,
+					rgba(0,0,0,0.9) 0%,
+					rgba(0,0,0,0.0) 100%
+				);
+			}
+			
+			/* Banner Inhalt */
+			.hero-content {
+				position: absolute;
+				left: 40px;
+				bottom: 20px;
+				z-index: 1;
+				color: white;
+				text-align: left;
+			}
+			
+			/* Überschrift im Banner */
+			.hero-content h1 {
+				font-size: rem; /* oder z.B. 48px */
+				margin: 0 0 10px 0;
+			}
+
+/* Block: BackToTop */			
+			#backToTop {
+				display: none; /* zunächst unsichtbar */
+				position: fixed; /* bleibt beim Scrollen sichtbar */
+				bottom: 110px; /* Abstand vom unteren Rand */
+				right: 30px; /* Abstand vom rechten Rand */
+				z-index: 1000; /* über allen anderen Inhalten */
+				width: 50px;
+				height: 50px;
+				background-color: rgba(0,50,0,0.7); /* halbtransparent dunkelgrün */
+				color: white;
+				border: none;
+				border-radius: 50%; /* rund */
+				cursor: pointer;
+				font-size: 24px; /* Pfeilgröße */
+				text-align: center;
+				line-height: 50px; /* vertikale Zentrierung des Pfeils */
+				box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+				transition: all 0.3s ease; /* sanfter Hover-Effekt */
+			}
+			
+			#backToTop:hover {
+				background-color: rgba(0,77,0,0.9);
+				transform: translateY(-3px); /* leichter Hover-"Lift" */
+			}

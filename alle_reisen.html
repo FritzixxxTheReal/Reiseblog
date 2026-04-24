@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang=de>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Alle Reisen</title>
+		<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
+		<style>
+		/* Bereich mit zwei Spalten */
+		.zwei-spalten {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			align-items: start;
+			margin-bottom: 40px;
+		}
+		
+		.linke-spalte {
+			width: 100%;
+		}
+		
+		.rechte-spalte {
+			width: 100%;
+		}
+		
+		
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="header-container">
+				<!-- Logo links und anklickbar -->
+				<a href="index.html" class="logo">
+					<img
+						src="img/logo.png"
+						alt="Logo" />
+				</a>
+				<!-- Navigation rechts -->
+				<nav>
+					<ul>
+						<li class="has-submenu">
+							<a href="#">Reiseberichte <span class="arrow"></a>
+							<ul>
+								<li> <a href="alle_reisen.html">Alle Reisen</a> </li>
+								<li class="has-submenu">
+									<a href="#">Radreisen <span class="arrow"></a>
+									<ul>
+										<li> <a href="radreise_nahe_rhein.html">Nahe- und Rheinradweg</a> </li>
+										<li> <a href="nordseekuestenradweg_2022.html">Nordseeküstenradweg NL & DE</a> </li>
+										<li> <a href="nordseekuestenradweg_haervejen.html">Nordseeküstenradweg DK & Hærvejen</a> </li>
+										<li> <a href="ochsenweg.html">Ochsenweg</a> </li>
+										<li> <a href="trient_verona.html">Trient - Verona</a> </li>
+										<li> <a href="weserradweg_2020.html">Weserradweg</a> </li>
+									</ul>
+								</li>
+								<li class="has-submenu">
+									<a href="#">Wanderungen <span class="arrow"></a>
+									<ul>
+										<li> <a href="altmuehltal_panoramaweg.html">Altmühltal-Panoramaweg</a> </li>
+										<li> <a href="mullerthal_trail.html">Mullerthal Trail</a> </li>
+										<li> <a href="skaneleden_sl3_sl4.html">Skåneleden SL3 & SL4</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li> <a href="ausruestung.html">Ausrüstung</a> </li>
+						<li> <a href="unterkuenfte.html">Unterkünfte</a> </li>
+					</ul>
+				</nav>
+				</div>
+			</header>
+			<main>
+				<div class="hero">
+					<img src="img/nordseekuestenradweg_2022/banner.jpg" alt="" class="hero-image">
+					<div class="hero-gradient"></div>
+					<div class ="hero-content">
+						<h1>Alle meine Reisen</h1>
+						<p>Unterüberschrift</p>
+					</div>
+				</div>
+				<div class="main-content">
+					<div class="zwei-spalten">
+						<div class="linke-spalte">
+							<h2>Radreisen</h2>
+								<ul>
+									<li> <a href="radreise_nahe_rhein.html">Nahe- und Rheinradweg</a> </li>
+									<li> <a href="nordseekuestenradweg_2022.html">Nordseeküstenradweg NL & DE</a> </li>
+									<li> <a href="nordseekuestenradweg_haervejen.html">Nordseeküstenradweg DK & Hærvejen</a> </li>
+									<li> <a href="ochsenweg.html">Ochsenweg</a> </li>
+									<li> <a href="trient_verona.html">Trient - Verona</a> </li>
+									<li> <a href="weserradweg_2020.html">Weserradweg</a> </li>
+								</ul>
+						</div>
+						<div class ="rechte-spalte">
+							<h2>Wanderungen</h2>
+								<ul>
+									<li> <a href="altmuehltal_panoramaweg.html">Altmühltal-Panoramaweg</a> </li>
+									<li> <a href="mullerthal_trail.html">Mullerthal Trail</a> </li>
+									<li> <a href="skaneleden_sl3_sl4.html">Skåneleden SL3 & SL4</a> </li>
+								</ul>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer>
+				<div class="footer-content">
+					<p>© 2026 Franziska Dickschas</p>
+					<a href="">Impressum</a>
+				</div>
+			</footer>
+		</div>
+		<button id="backToTop" title="Nach oben scrollen">⬆</button>
+		<script>
+			const backToTopButton = document.getElementById("backToTop");
+
+			// Button sofort anzeigen, sobald minimal gescrollt wurde
+			window.addEventListener("scroll", function () {
+				if (window.scrollY > 0) {
+					backToTopButton.style.display = "block";
+				} else {
+					backToTopButton.style.display = "none";
+				}
+			});
+
+			// Beim Klick sanft nach oben scrollen
+			backToTopButton.addEventListener("click", () => {
+				window.scrollTo({
+					top: 0,
+					behavior: "smooth"
+				});
+			});
+		</script>
+		<script>
+		document.querySelectorAll('nav .has-submenu > a').forEach(function (link) {
+			link.addEventListener('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				this.parentElement.classList.toggle('open');
+				console.log('open umgeschaltet:', this.textContent);
+			});
+		});
+
+		document.addEventListener('click', function () {
+			document.querySelectorAll('nav .open').forEach(function (item) {
+				item.classList.remove('open');
+			});
+		});
+		</script>
+	</body>
+</html>
