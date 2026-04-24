@@ -7,6 +7,15 @@
 				margin: 0;
 				padding: 0;
 			}
+
+			* {
+				box-sizing: border-box;
+			}
+			
+			img {
+				max-width: 100%;
+				height: auto;
+			}
 			
 			.wrapper {
 				display: flex;
@@ -51,7 +60,8 @@
 				display: flex;
 				align-items: center; /* vertikal zentriert */
 				justify-content: flex-end; /* ganz rechts im Footer */
-				height: 90px;
+				min-height: clamp(70px, 10vw, 90px);
+				height: auto;
 			}
 			
 			/* Inhalt des Footers */
@@ -59,15 +69,15 @@
 				display: flex;
 				justify-content: flex-end; /* rechtsbündig */
 				align-items: center; /* vertikal zentriert */
-				gap: 30px; /* Abstand zwischen den Elementen */
-				margin-right: 10px; /* Abstand zum rechten Seitenrand */
+				gap: clamp(12px, 3vw, 30px); /* Abstand zwischen den Elementen */
+				margin-right: clamp(0px, 2vw, 10px); /* Abstand zum rechten Seitenrand */
 				height: 100%; /* optional für vertikale Zentrierung */
 			}
 				
 			/* Logo */
 			.logo img {
-				height: 70px; /* Höhe des Logos */
-				padding-left: 10px;
+				height: clamp(48px, 8vw, 70px);
+				padding-left: clamp(0px, 2vw, 10px);
 			}
 /* Block: Navigation */			
 			/* Navigation */
@@ -270,10 +280,10 @@
 			
 			/* Main-Inhalt */
 			.main-content {
-				padding-left: 325px;
-				padding-right: 325px;
-				padding-top: 30px;
-				padding-bottom: 60px;
+				width: min(1100px, calc(100% - clamp(24px, 8vw, 80px)));
+				margin: 0 auto;
+				padding-top: clamp(20px, 4vw, 40px);
+				padding-bottom: clamp(40px, 6vw, 70px);
 			}
 			
 			/* Banner */
@@ -328,69 +338,47 @@
 				font-size: clamp(1.6rem, 5vw, 3rem); /* oder z.B. 48px */
 				margin: 0 0 10px 0;
 			}
-			@media (max-width: 768px) {
-			
-				header, footer {
-					padding: 8px 12px;
-				}
-			
-				.logo img {
-					height: clamp(45px, 12vw, 65px);
-					padding-left: 0;
-				}
-			
-				.main-content {
-					width: min(100% - 24px, 1100px);
-					padding-top: 20px;
-					padding-bottom: 40px;
-				}
-			
-				.hero {
-					height: clamp(160px, 45vw, 240px);
-				}
-			
-				.hero-content {
-					left: 16px;
-					right: 16px;
-					bottom: 16px;
-				}
-			
-				.footer-content {
-					gap: 16px;
-					margin-right: 0;
-					flex-wrap: wrap;
-					justify-content: center;
-				}
-			
-				footer {
-					height: auto;
-					min-height: 80px;
-					justify-content: center;
-				}
-			}
 
-/* Block: BackToTop */			
-			#backToTop {
-				display: none; /* zunächst unsichtbar */
-				position: fixed; /* bleibt beim Scrollen sichtbar */
-				bottom: 110px; /* Abstand vom unteren Rand */
-				right: 30px; /* Abstand vom rechten Rand */
-				z-index: 1000; /* über allen anderen Inhalten */
-				width: 50px;
-				height: 50px;
-				background-color: rgba(0,50,0,0.7); /* halbtransparent dunkelgrün */
-				color: white;
-				border: none;
-				border-radius: 50%; /* rund */
-				cursor: pointer;
-				font-size: 24px; /* Pfeilgröße */
-				text-align: center;
-				line-height: 50px; /* vertikale Zentrierung des Pfeils */
-				box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-				transition: all 0.3s ease; /* sanfter Hover-Effekt */
-			}
-			
-			#backToTop:hover {
-				background-color: rgba(0,77,0,0.9);
-				transform: translateY(-3px); /* leichter Hover-"Lift" */
-			}
+@media (max-width: 768px) {
+
+	header,
+	footer {
+		padding: 8px 12px;
+	}
+
+	.logo img {
+		height: clamp(42px, 12vw, 58px);
+		padding-left: 0;
+	}
+
+	.main-content {
+		width: min(100% - 24px, 1100px);
+		padding-top: 20px;
+		padding-bottom: 40px;
+	}
+
+	.hero {
+		height: clamp(180px, 48vw, 260px);
+	}
+
+	.hero-content {
+		left: 16px;
+		right: 16px;
+		bottom: 16px;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(1.5rem, 7vw, 2.2rem);
+		line-height: 1.1;
+	}
+
+	.footer-content {
+		justify-content: center;
+		text-align: center;
+		gap: 12px 20px;
+	}
+
+	footer {
+		justify-content: center;
+	}
+}
