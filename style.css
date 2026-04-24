@@ -38,7 +38,6 @@
 				display: flex; /* Flexbox für horizontale Anordnung */
 				justify-content: space-between; /* Logo links, Menü rechts */
 				align-items: center; /* vertikal zentriert */
-				min-height: 40px;
 			}
 						
 			/* Header zusätzlich */
