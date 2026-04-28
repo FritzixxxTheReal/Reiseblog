@@ -197,11 +197,13 @@
 				
 			  // 3.C Marker: auf Karte hinzufügen
 				// Marker mit zeltIcon
-				L.marker([51.931405434669, 4.444445845], { icon: zeltIcon }).addTo(map);
-				marker.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
+				L.marker([51.931405434669, 4.444445845], { icon: zeltIcon })
+					.addTo(map);
+					.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
 				// Marker mit wasserIcon
-				L.marker([51.94, 4.50], { icon: wasserIcon }).addTo(map)
-				 .bindPopup("<b>Wasserquelle</b>");
+				L.marker([51.94, 4.50], { icon: wasserIcon })
+					.addTo(map)
+				 	.bindPopup("<b>Wasserquelle</b>");
 			});
 		</script>
 	</body>
