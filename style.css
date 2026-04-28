@@ -198,6 +198,32 @@
 				display: inline-block;
 			}
 
+/* Block: BackToTop */			
+			#backToTop {
+				display: none; /* zunächst unsichtbar */
+				position: fixed; /* bleibt beim Scrollen sichtbar */
+				bottom: 110px; /* Abstand vom unteren Rand */
+				right: 30px; /* Abstand vom rechten Rand */
+				z-index: 1000; /* über allen anderen Inhalten */
+				width: 50px;
+				height: 50px;
+				background-color: rgba(0,50,0,0.7); /* halbtransparent dunkelgrün */
+				color: white;
+				border: none;
+				border-radius: 50%; /* rund */
+				cursor: pointer;
+				font-size: 24px; /* Pfeilgröße */
+				text-align: center;
+				line-height: 50px; /* vertikale Zentrierung des Pfeils */
+				box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+				transition: all 0.3s ease; /* sanfter Hover-Effekt */
+			}
+			
+			#backToTop:hover {
+				background-color: rgba(0,77,0,0.9);
+				transform: translateY(-3px); /* leichter Hover-"Lift" */
+			}
+
 /* Block mobile Navigation Burger */
 			/* Hamburger-Button standardmäßig ausblenden */
 			.menu-toggle {
