@@ -127,7 +127,7 @@
 		</div>
 		<button id="backToTop" title="Nach oben scrollen">⬆</button>
 		<script>
-		document.addEventListener("DOMContentLoaded", function () {
+			document.addEventListener("DOMContentLoaded", function () {
 		
 			// Back-to-top
 			const backToTopButton = document.getElementById("backToTop");
@@ -166,25 +166,37 @@
 				});
 			});
 			// 1. Karte initialisieren und auf Rotterdam bis Hamburg zentrieren + Vollbild Button
-			  const map = L.map('map', {
+			  	const map = L.map('map', {
 				fullscreenControl: true,
 				fullscreenControlOptions: {
 					position: 'topleft',
 					title: 'Karte im Vollbild öffnen',
 					titleCancel: 'Vollbild schließen'
 				}
-			  }).setView([52.79, 7.18], 6);
+			  	}).setView([52.79, 7.18], 6);
 			
 			  // 2. OpenStreetMap-Kachel-Layer hinzufügen
-			  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			    maxZoom: 19,
+			  	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			   	maxZoom: 19,
 			    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			  }).addTo(map);
+			  	}).addTo(map);
 			
-			  // 3. Beispiel: Marker hinzufügen
-			  const marker = L.marker([51.93, 4.44]).addTo(map);
-			  marker.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
-		});
+			  // 3. Marker hinzufügen
+				// normaler Marker
+				const marker = L.marker([51.93, 4.44]).addTo(map);
+				marker.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
+				// Icon definieren
+				const wasserIcon = L.icon({
+				    iconUrl: 'img/wasser.png',
+				    iconSize: [32, 32],
+				    iconAnchor: [16, 32],
+				    popupAnchor: [0, -32]
+				});
+				// Marker mit wasserIcon
+				L.marker([51.94, 4.50], { icon: wasserIcon }).addTo(map)
+				 .bindPopup("<b>Wasserquelle</b>");
+				// Marker mit zeltIcon
+			});
 		</script>
 	</body>
 </html>
