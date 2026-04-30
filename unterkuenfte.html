@@ -162,7 +162,6 @@
 				}
 				
 			  // 3.B Marker: Icons erstellen
-				const wasserIcon = createIcon('img/icon/wasser.png');
     			const zeltIcon   = createIcon('img/icon/zelt.png');
 				
 			  // 3.C Marker: auf Karte hinzufügen
@@ -170,10 +169,6 @@
 				L.marker([51.9307, 4.44482], { icon: zeltIcon })
 					.addTo(map)
 					.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
-				// Marker mit wasserIcon
-				L.marker([51.94, 4.50], { icon: wasserIcon })
-					.addTo(map)
-				 	.bindPopup("<b>Wasserquelle</b>");
 			});
 	   </script>
 	</body>
