@@ -151,10 +151,30 @@
 			    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			  }).addTo(map);
 			
-			  // 3. Beispiel: Marker hinzufügen
-			  const marker = L.marker([53.55, 10.00]).addTo(map);
-			  marker.bindPopup("<b>Hamburg</b><br>Ich bin ein Popup.").openPopup();
-		});
+			  // 3.A Marker: Funktion definieren
+				function createIcon(url, size = 32) {
+			    return L.icon({
+			        iconUrl: url,
+			        iconSize: [size, size],
+			        iconAnchor: [size/2, size],
+			        popupAnchor: [0, -size]
+			    });
+				}
+				
+			  // 3.B Marker: Icons erstellen
+				const wasserIcon = createIcon('img/icon/wasser.png');
+    			const zeltIcon   = createIcon('img/icon/zelt.png');
+				
+			  // 3.C Marker: auf Karte hinzufügen
+				// Marker mit zeltIcon
+				L.marker([51.9307, 4.44482], { icon: zeltIcon })
+					.addTo(map)
+					.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
+				// Marker mit wasserIcon
+				L.marker([51.94, 4.50], { icon: wasserIcon })
+					.addTo(map)
+				 	.bindPopup("<b>Wasserquelle</b>");
+			});
 	   </script>
 	</body>
 </html>
