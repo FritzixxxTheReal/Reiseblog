@@ -115,7 +115,7 @@
 			if (menuButton && nav) {
 				menuButton.addEventListener("click", function () {
 					const isOpen = nav.classList.toggle("open");
-					menuButton.setAttribute("aria-expanded", isOpen);
+					menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
 				});
 			}
 		
@@ -127,7 +127,24 @@
 					link.parentElement.classList.toggle("open");
 				});
 			});
+
+			// Hero-Banner: mehrere Hintergrundbilder automatisch wechseln
+			const heroImages = document.querySelectorAll(".hero-image");
+			let currentImageIndex = 0;
 		
+			if (heroImages.length > 1) {
+				setInterval(function () {
+					heroImages[currentImageIndex].classList.remove("active");
+		
+					currentImageIndex++;
+		
+					if (currentImageIndex >= heroImages.length) {
+						currentImageIndex = 0;
+					}
+		
+					heroImages[currentImageIndex].classList.add("active");
+				}, 5000);
+			}
 		});
 		</script>
 	</body>
