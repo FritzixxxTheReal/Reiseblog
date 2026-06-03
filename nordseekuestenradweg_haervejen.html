@@ -3,10 +3,29 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Nordseeküstenradweg DK & Hærvejen</title>
+		<title>Nordseeküstenradweg & Hærvejen</title>
 		<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
 		<link href="reiseberichte.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@3.0.2/Control.FullScreen.css">
+		<script 
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin="">
+		</script>
+		<script 
+			src="https://unpkg.com/leaflet.fullscreen@3.0.2/Control.FullScreen.js">
+		</script>
+		<style>
+			/* Map bei der Seite Unterkünfte */
+			#map {
+				height: 250px;
+				margin-bottom: 2em; /* optional, für Abstand nach unten */
+			}
+		</style>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -61,11 +80,29 @@
 					<img src="img/nordseekuestenradweg_2022/banner.jpg" alt="" class="hero-image">
 					<div class="hero-gradient"></div>
 					<div class ="hero-content">
-						<h1>Nordseeküstenradweg - Von Rotterdam nach Hamburg</h1>
-						<p>Juli 2022.</p>
+						<h1>Nordseeküstenradweg & Hærvejen</h1>
+						<p>Mai 2026</p>
 					</div>
 				</div>
 				<div class="main-content">
+					<section class="Drittelspalte_rechts">
+						<div class="textspalte">
+							<h2>Nordseeküstenradweg & Hærvejen - Die große Dänemark-Tour</h2>
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  
+
+							Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+
+							Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.  
+
+							Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						</div>
+						<div class="bildspalte">
+							<p>Meine Route, Unterkünfte und Wasserquellen</p>
+							<div id="map"></div>
+							<p>Am besten öffnest du die Karte im Vollbildmodus, um die Route sowie die Marker gut einsehen zu können.</p><br>
+							<p>Über die Filter (oben rechts am Kartenrand) kannst du dir die Route, Unterkünfte und Wasserquellen ein- bzw. ausblenden.</p>
+						</div>
+					</section>
 					<section class="Drittelspalte_rechts">
 						<div class="textspalte">
 							<h2>Der Nordseeküstenradweg - Meine erste eigene Radreise</h2>
@@ -76,6 +113,9 @@
 							Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.  
 
 							Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						</div>
+						<div class="bildspalte">
+							<p>Platzhalter Bild</p>
 						</div>
 					</section>
 				</div>
@@ -89,7 +129,8 @@
 		</div>
 		<button id="backToTop" title="Nach oben scrollen">⬆</button>
 		<script>
-		document.addEventListener("DOMContentLoaded", function () {
+			document.addEventListener("DOMContentLoaded", function () {
+		
 			// Back-to-top
 			const backToTopButton = document.getElementById("backToTop");
 		
@@ -105,6 +146,7 @@
 					});
 				});
 			}
+		
 			// Burger-Menü
 			const menuButton = document.querySelector(".menu-toggle");
 			const nav = document.querySelector("#mainNav");
@@ -114,7 +156,9 @@
 					const isOpen = nav.classList.toggle("open");
 					menuButton.setAttribute("aria-expanded", isOpen);
 				});
-			}		
+			}
+		
+		
 			// Untermenüs
 			document.querySelectorAll("#mainNav .has-submenu > a").forEach(function (link) {
 				link.addEventListener("click", function (event) {
@@ -122,7 +166,116 @@
 					link.parentElement.classList.toggle("open");
 				});
 			});
-		});
+			
+			// 1. Karte initialisieren und auf Rotterdam bis Hamburg zentrieren + Vollbild Button
+			  	const map = L.map('map', {
+				fullscreenControl: true,
+				fullscreenControlOptions: {
+					position: 'topleft',
+					title: 'Karte im Vollbild öffnen',
+					titleCancel: 'Vollbild schließen'
+				}
+			  	}).setView([56.43726378387624, 9.25053893348951], 7);
+			
+			  // 2. OpenStreetMap-Kachel-Layer hinzufügen
+			  	const osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			   	maxZoom: 19,
+			    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			  	}).addTo(map);
+			
+			  // 3.A Marker: Funktion definieren
+				function createIcon(url, size = 20) {
+			    return L.icon({
+			        iconUrl: url,
+			        iconSize: [size, size],
+			        iconAnchor: [size/2, size],
+			        popupAnchor: [0, -size]
+			    });
+				}
+				
+			  // 3.B Marker: Icons erstellen
+				const wasserIcon = createIcon('img/icon/wasser.png');
+    			const zeltIcon   = createIcon('img/icon/zelt.png');
+
+			  // 4. LayerGroups erstellen
+				const unterkuenfte = L.layerGroup();
+				const wasserquellen = L.layerGroup();
+				const route = L.layerGroup();
+				
+			  // 5. Unterkünfte zur Gruppe hinzufügen
+				L.marker([51.9307, 4.44482], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
+				L.marker([52.1111, 4.3432], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Camping Duinhorst</b><br>Sauberer Campingplatz mit kleinen 'Inseln' und Pool<br>Nicht weit bis zum Stadtzentrum");
+				L.marker([52.5261, 4.7401], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Minicamping de Swaenebloem</b><br>Einfacher und sauberer Campingplatz<br>Sehr nette und hilfsbereite Betreiber");
+				L.marker([52.8002, 4.7278], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Camping 't Ananas</b><br>Einfacher Campingplatz<br>Verdreckte Sanitärräume ohne Toilettenpapier");
+				L.marker([53.1212, 5.4556], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>De Nije Trije</b><br>Günstiger und sauberer Campingplatz<br>Sehr idyllisch und nette Betreiber");
+				L.marker([53.3415, 5.8896], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Camping de Blijer Wadden</b><br>Günstiger und sauberer Campingplatz<br>Sehr nette Betreiber");
+				L.marker([53.3851, 6.5607], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Camp Zuiderhorn</b><br>Günstiger und einfacher Campingplatz<br>Mit kleinem Spielplatz und Aufenthaltsraum");
+				L.marker([53.3013, 7.032], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>MarinaPark Zeestrand</b><br>Sauberer Campingplatz<br>Relativ teuer");
+				L.marker([53.2247, 7.4191], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Ems-Marina-Camping</b><br>Günstiger und einfacher Campingplatz<br>Nicht weit bis nach Leer");
+				L.marker([53.3471, 7.0376], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Campingplatz am Knock</b><br>Sauberer und günstiger Campingplatz");
+				L.marker([53.6046, 7.1394], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Nordsee-Camp Norddeich</b><br>Sauberer Campingplatz<br>Relativ teuer");
+				L.marker([53.6987, 7.8050], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Campingplatz Boyungs</b><br>Günstiger und sauberer Campingplatz<br>Sehr nette Betreiber");
+				L.marker([53.4502, 8.1178], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Campingplatz Rennweide Dangast</b><br>Günstiger und sauberer Campingplatz<br>Sehr schöne Aussicht auf den Jadebusen");
+				L.marker([53.5975, 8.3567], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Campingplatz Fischerdorf</b><br>Günstiger und sauberer Campingplatz");
+				L.marker([53.7657, 8.5446], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Campingplatz Cappel Neufeld</b><br>Günstiger und sauberer Campingplatz<br>Aufenthaltsraum und Küche für Zeltende");
+				L.marker([53.6250, 9.2029], { icon: zeltIcon })
+					.addTo(unterkuenfte)
+					.bindPopup("<b>Freizeit-und Campingpark Geesthof</b><br>Günstiger und sauberer Campingplatz<br>Sehr familienfreundlich");
+				
+				// 6. Wasserquellen zur Gruppe hinzufügen
+				L.marker([51.94, 4.50], { icon: wasserIcon })
+					.addTo(wasserquellen)
+				 	.bindPopup("<b>Wasserquelle</b>");
+
+				// 7. Route zur Gruppe hinzufügen
+
+				// 8. Gruppen standardmäßig auf der Karte anzeigen
+				unterkuenfte.addTo(map);
+				wasserquellen.addTo(map);
+				route.addTo(map);
+
+				// 9. Layer-Control hinzufügen
+				const overlayMaps = {
+					"Unterkünfte": unterkuenfte,
+					"Wasserquellen": wasserquellen,
+					"Route": route
+				};
+				
+				L.control.layers(null, overlayMaps, {
+					collapsed: true,
+					position: 'topright'
+				}).addTo(map);
+			});
 		</script>
 	</body>
 </html>
