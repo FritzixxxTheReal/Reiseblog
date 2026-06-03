@@ -263,6 +263,19 @@
 				// 7. Route zur Gruppe hinzufügen
 				const gpxTrack = new L.GPX('gpx/nordseekuestenradweg_heerweg.gpx', {
 					async: true,
+
+					// Nur den echten Track laden, keine Wegpunkte aus der GPX-Datei
+					gpx_options: {
+						parseElements: ['track']
+					},
+
+					// Start- und Endmarker ausblenden
+					marker_options: {
+						startIconUrl: null,
+						endIconUrl: null,
+						shadowUrl: null
+					},
+
 					polyline_options: {
 						color: '#0066cc',
 						opacity: 0.85,
