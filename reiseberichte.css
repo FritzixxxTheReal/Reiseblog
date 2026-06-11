@@ -33,6 +33,7 @@
 		    .detail-table td {
 		        border: 1px solid #ddd;
 		        padding: 8px;
+				white-space: nowrap; /* verhindert Zeilenumbruch */
 		        text-align: left;
 		    }
 		
@@ -41,10 +42,6 @@
 		        width: 30%;
 		        font-weight: bold;
 		    }
-
-			.detail-table td {
-				white-space: nowrap; /* verhindert Zeilenumbruch */
-			}
 
 /* Mobile Ansicht */
 @media (max-width: 799.99px) {
@@ -65,11 +62,3 @@
 				order: 1;
 			}
 			}
-
-/* Nicht-Mobile Ansicht */
-@media (min-width: 800px) {
-		    .detail-table th,
-		    .detail-table td {
-		        white-space: nowrap; /* verhindert Zeilenumbruch */
-		    }
-}
