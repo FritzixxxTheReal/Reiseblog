@@ -43,7 +43,7 @@
 		    }
 
 /* Mobile Ansicht */
-@media (max-width: 767.99px) {
+@media (max-width: 799.99px) {
 			.Drittelspalte_rechts {
 				grid-template-columns: 1fr;
 				gap: 24px;
@@ -63,7 +63,7 @@
 			}
 
 /* Nicht-Mobile Ansicht */
-@media (min-width: 768px) {
+@media (min-width: 800px) {
 		    .detail-table th,
 		    .detail-table td {
 		        white-space: nowrap; /* verhindert Zeilenumbruch */
