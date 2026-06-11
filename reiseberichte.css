@@ -21,6 +21,26 @@
 				line-height: 1.35;
 			}
 
+
+/* Tabelle mit Reise-Eckdaten */
+			.detail-table {
+		        border-collapse: collapse;
+		        width: 100%;
+		    }
+		
+		    .detail-table th,
+		    .detail-table td {
+		        border: 1px solid #ddd;
+		        padding: 8px;
+		        text-align: left;
+		    }
+		
+		    .detail-table th {
+		        background-color: #f5f5f5;
+		        width: 30%;
+		        font-weight: bold;
+		    }
+
 /* Mobile Ansicht */
 @media (max-width: 768px) {
 			.Drittelspalte_rechts {
