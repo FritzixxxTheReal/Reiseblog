@@ -29,7 +29,13 @@
 		        margin: 20px auto;
 		    }
 		
-		    .detail-table th,
+		    .detail-table th {
+				border: 1px solid #ddd;
+		        padding: 8px;
+				background-color: rgba(0, 50, 0, 0.2);
+		        text-align: left;
+			}	
+				
 		    .detail-table td {
 		        border: 1px solid #ddd;
 		        padding: 8px;
