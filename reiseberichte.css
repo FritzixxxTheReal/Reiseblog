@@ -42,6 +42,10 @@
 		        font-weight: bold;
 		    }
 
+			.detail-table td {
+				white-space: nowrap; /* verhindert Zeilenumbruch */
+			}
+
 /* Mobile Ansicht */
 @media (max-width: 799.99px) {
 			.Drittelspalte_rechts {
