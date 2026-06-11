@@ -137,7 +137,9 @@
 							<figure class="bildgalerie">
 								<img src="img/nordseekuestenradweg_haervejen_2026/tag_1_erste_beschilderung.jpeg" alt="Der Nordseeküstenradweg ist zum ersten Mal ausgeschildert" data-full="img/nordseekuestenradweg_haervejen_2026/tag_1_erste_beschilderung.jpeg">
 								<img src="img/nordseekuestenradweg_haervejen_2026/mein_rad.jpeg" alt="Mein Fahrrad mit Ausrüstung" data-full="img/nordseekuestenradweg_haervejen_2026/mein_rad.jpeg">
-								<img src="img/nordseekuestenradweg_haervejen_2026/tag_1_daenische_grenze.jpeg" alt="Schild 'Danmark'" data-full="img/nordseekuestenradweg_haervejen_2026/tag_1_daenische_grenze.jpeg">
+								<div class="galerie-mehr">
+									<img src="img/nordseekuestenradweg_haervejen_2026/tag_1_daenische_grenze.jpeg" alt="Schild 'Danmark'" data-full="img/nordseekuestenradweg_haervejen_2026/tag_1_daenische_grenze.jpeg">
+								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
 							<div class="lightbox" id="lightbox" aria-hidden="true">
@@ -200,11 +202,25 @@
 
 			// Bildergalerie //
 				 const galleryImages = Array.from(document.querySelectorAll(".bildgalerie img"));
-				    const lightbox = document.getElementById("lightbox");
-				    const lightboxImg = document.getElementById("lightboxImg");
-				    const closeButton = document.querySelector(".lightbox-close");
-				    const prevButton = document.querySelector(".lightbox-prev");
-				    const nextButton = document.querySelector(".lightbox-next");
+					const lightbox = document.getElementById("lightbox");
+					const lightboxImg = document.getElementById("lightboxImg");
+					const closeButton = document.querySelector(".lightbox-close");
+					const prevButton = document.querySelector(".lightbox-prev");
+					const nextButton = document.querySelector(".lightbox-next");
+					
+					/* Anzahl der zusätzlich vorhandenen Bilder automatisch anzeigen */
+					const galerieMehr = document.querySelector(".galerie-mehr");
+					
+					if (galerieMehr) {
+					    const bildAnzahl = galleryImages.length;
+					    const versteckteBilder = bildAnzahl - 3;
+					
+					    if (versteckteBilder > 0) {
+					        galerieMehr.setAttribute("data-count", "+" + versteckteBilder);
+					    } else {
+						    galerieMehr.classList.remove("galerie-mehr");
+						}
+					}
 				
 				    let currentIndex = 0;
 				
