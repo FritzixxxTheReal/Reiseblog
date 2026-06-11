@@ -44,14 +44,14 @@
 		    }
 
 /* Bildgalerie */
-			.reisegalerie {
+			.bildgalerie {
 			    display: grid;
 			    grid-template-columns: 2fr 1fr 1fr;
 			    gap: 8px;
 			    margin: 0 0 24px 0;
 			}
 			
-			.reisegalerie img {
+			.bildgalerie img {
 			    width: 100%;
 			    aspect-ratio: 1 / 1;
 			    object-fit: cover;
@@ -60,12 +60,12 @@
 			    cursor: pointer;
 			}
 			
-			.reisegalerie img:first-child {
+			.bildgalerie img:first-child {
 			    grid-row: span 2;
 			    aspect-ratio: 1 / 2;
 			}
 			
-			.reisegalerie figcaption {
+			.bildgalerie figcaption {
 			    grid-column: 1 / -1;
 			    font-size: clamp(0.8rem, 2vw, 0.9rem);
 			    text-align: center;
