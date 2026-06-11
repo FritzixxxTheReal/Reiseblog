@@ -24,7 +24,8 @@
 
 /* Tabelle mit Reise-Eckdaten */
 			.detail-table {
-		        border-collapse: collapse;
+		        border-collapse: separate;
+				border-spacing: 10px;
 		        width: 100%;
 		    }
 		
