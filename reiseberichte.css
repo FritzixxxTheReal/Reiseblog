@@ -24,9 +24,10 @@
 
 /* Tabelle mit Reise-Eckdaten */
 			.detail-table {
-		        border-collapse: separate;
-				border-spacing: 10px;
-		        width: 100%;
+		        border-collapse: collapse; /* Verhindert doppelte Linien */
+		        border: 3px solid #003200; /* Rahmenfarbe und -stärke */
+		        width: 60%;
+		        margin: 20px auto;
 		    }
 		
 		    .detail-table th,
