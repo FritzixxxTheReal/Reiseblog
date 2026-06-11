@@ -9,7 +9,7 @@
 			.textspalte {
 				width: 100%;
 			}
-			.bildspalte img {
+			.bildspalte > img {
 				width: min(100%, 360px);
 				height: auto;
 				display: block;
@@ -175,7 +175,7 @@
 				gap: 24px;
 			}
 		
-			.bildspalte img {
+			.bildspalte > img {
 				width: min(100%, 420px);
 			}
 			
@@ -205,5 +205,4 @@
 		        max-width: 92vw;
 		        max-height: 75vh;
 		    }
-			}
 			}
