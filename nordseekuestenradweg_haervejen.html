@@ -124,7 +124,7 @@
 					</section>
 					<section class="Drittelspalte_rechts">
 						<div class="textspalte">
-							<h2>Tag 1 – Anreise nach Klanxbüll und Fahrt bis Emmerlev</h2>
+							<h2>Tag 0 – Anreise nach Klanxbüll und Fahrt bis Emmerlev</h2>
 							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.  
 
 							Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
@@ -134,6 +134,18 @@
 							Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
 						</div>
 						<div class="bildspalte">
+							<figure class="bildgalerie">
+								<img src="img/nordseekuestenradweg_haervejen_2026/tag_1_erste_beschilderung.jpeg" alt="Der Nordseeküstenradweg ist zum ersten Mal ausgeschildert" data-full="img/nordseekuestenradweg_haervejen_2026/tag_1_erste_beschilderung.jpeg">
+								<img src="img/nordseekuestenradweg_haervejen_2026/mein_rad.jpeg" alt="Mein Fahrrad mit Ausrüstung" data-full="img/nordseekuestenradweg_haervejen_2026/mein_rad.jpeg">
+								<img src="img/nordseekuestenradweg_haervejen_2026/tag_1_daenische_grenze.jpeg" alt="Schild 'Danmark'" data-full="img/nordseekuestenradweg_haervejen_2026/tag_1_daenische_grenze.jpeg">
+								<figcaption>Bilder vom Anreisetag</figcaption>
+							</figure>
+							<div class="lightbox" id="lightbox" aria-hidden="true">
+								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
+								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
+								<img class="lightbox-img" id="lightboxImg" src="" alt="">
+								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
+							</div>
 							<p>Platzhalter Bild</p>
 						</div>
 					</section>
@@ -185,6 +197,67 @@
 					link.parentElement.classList.toggle("open");
 				});
 			});
+
+			// Bildergalerie //
+				 const galleryImages = Array.from(document.querySelectorAll(".bildgalerie img"));
+				    const lightbox = document.getElementById("lightbox");
+				    const lightboxImg = document.getElementById("lightboxImg");
+				    const closeButton = document.querySelector(".lightbox-close");
+				    const prevButton = document.querySelector(".lightbox-prev");
+				    const nextButton = document.querySelector(".lightbox-next");
+				
+				    let currentIndex = 0;
+				
+				    function openLightbox(index) {
+				        currentIndex = index;
+				        const image = galleryImages[currentIndex];
+				
+				        lightboxImg.src = image.dataset.full || image.src;
+				        lightboxImg.alt = image.alt;
+				
+				        lightbox.classList.add("active");
+				        lightbox.setAttribute("aria-hidden", "false");
+				    }
+				
+				    function closeLightbox() {
+				        lightbox.classList.remove("active");
+				        lightbox.setAttribute("aria-hidden", "true");
+				        lightboxImg.src = "";
+				    }
+				
+				    function showPrev() {
+				        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+				        openLightbox(currentIndex);
+				    }
+				
+				    function showNext() {
+				        currentIndex = (currentIndex + 1) % galleryImages.length;
+				        openLightbox(currentIndex);
+				    }
+				
+				    galleryImages.forEach(function (image, index) {
+				        image.addEventListener("click", function () {
+				            openLightbox(index);
+				        });
+				    });
+				
+				    closeButton.addEventListener("click", closeLightbox);
+				    prevButton.addEventListener("click", showPrev);
+				    nextButton.addEventListener("click", showNext);
+				
+				    lightbox.addEventListener("click", function (event) {
+				        if (event.target === lightbox) {
+				            closeLightbox();
+				        }
+				    });
+				
+				    document.addEventListener("keydown", function (event) {
+				        if (!lightbox.classList.contains("active")) return;
+				
+				        if (event.key === "Escape") closeLightbox();
+				        if (event.key === "ArrowLeft") showPrev();
+				        if (event.key === "ArrowRight") showNext();
+				    });
 			
 			// 1. Karte initialisieren und auf Rotterdam bis Hamburg zentrieren + Vollbild Button
 			  	const map = L.map('map', {
