@@ -195,11 +195,11 @@
 		        order: 1;
 		    }
 		
-		    .reisegalerie {
+		    .bildgalerie {
 		        grid-template-columns: repeat(2, 1fr);
 		    }
 		
-		    .reisegalerie img:first-child {
+		    .bildgalerie img:first-child {
 		        grid-column: 1 / -1;
 		        grid-row: auto;
 		        aspect-ratio: 16 / 9;
