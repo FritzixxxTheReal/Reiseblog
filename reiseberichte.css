@@ -204,6 +204,16 @@
 		        grid-row: auto;
 		        aspect-ratio: 16 / 9;
 		    }
+
+			.bildgalerie .galerie-mehr::before,
+		    .bildgalerie .galerie-mehr::after {
+		        display: none;
+		    }
+		
+		    .bildgalerie .galerie-mehr[data-count]:not([data-count="+0"])::before,
+		    .bildgalerie .galerie-mehr[data-count]:not([data-count="+0"])::after {
+		        display: block;
+		    }
 		
 		    .detail-table {
 		        width: 100%;
