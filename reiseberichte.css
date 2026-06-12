@@ -168,41 +168,63 @@
 			    transform: translateY(-50%);
 			}
 			
+
 /* Mobile Ansicht */
 @media (max-width: 820px) {
-			.Drittelspalte_rechts {
-				grid-template-columns: 1fr;
-				gap: 24px;
-			}
-		
-			.bildspalte > img {
-				width: min(100%, 420px);
-			}
-			
-			.bildspalte {
-				order: 2;
-			}
-			
-			.textspalte {
-				order: 1;
-			}
 
-			.reisegalerie {
+		    .Drittelspalte_rechts {
+		        grid-template-columns: minmax(0, 1fr);
+		        gap: 24px;
+		    }
+		
+		    .textspalte,
+		    .bildspalte {
+		        min-width: 0;
+		        max-width: 100%;
+		    }
+		
+		    .bildspalte > img {
+		        width: min(100%, 420px);
+		    }
+		
+		    .bildspalte {
+		        order: 2;
+		    }
+		
+		    .textspalte {
+		        order: 1;
+		    }
+		
+		    .reisegalerie {
 		        grid-template-columns: repeat(2, 1fr);
 		    }
-			
+		
 		    .reisegalerie img:first-child {
 		        grid-column: 1 / -1;
-				grid-row: auto;
-				aspect-ratio: 16 / 9;
+		        grid-row: auto;
+		        aspect-ratio: 16 / 9;
 		    }
-			
+		
+		    .detail-table {
+		        width: 100%;
+		        max-width: 100%;
+		        table-layout: fixed;
+		        margin: 20px 0;
+		    }
+		
+		    .detail-table th,
+		    .detail-table td {
+		        white-space: normal;
+		        overflow-wrap: break-word;
+		        word-break: break-word;
+		    }
+		
 		    .lightbox {
 		        padding: 20px;
 		    }
-			
+		
 		    .lightbox-img {
 		        max-width: 92vw;
 		        max-height: 75vh;
 		    }
-			}
+		}
