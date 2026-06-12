@@ -210,11 +210,6 @@
 		        display: none;
 		    }
 		
-		    .bildgalerie .galerie-mehr[data-count]:not([data-count="+0"])::before,
-		    .bildgalerie .galerie-mehr[data-count]:not([data-count="+0"])::after {
-		        display: block;
-		    }
-		
 		    .detail-table {
 		        width: 100%;
 		        max-width: 100%;
