@@ -7,6 +7,28 @@
 		<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
 		<link href="reiseberichte.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@3.0.2/Control.FullScreen.css">
+		<script 
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin="">
+		</script>
+		<script 
+			src="https://unpkg.com/leaflet.fullscreen@3.0.2/Control.FullScreen.js">
+		</script>
+		<script 
+			src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js">
+		</script>
+		<style>
+			/* Map */
+			#map {
+				height: 250px;
+				margin-bottom: 2em; /* optional, für Abstand nach unten */
+			}
+		</style>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -34,7 +56,14 @@
 						</div>
 						<div class="bildspalte">
 							<p>Meine Route, Unterkünfte und Wasserquellen</p>
-							<div id="map"></div>
+							<div
+							    id="map"
+							    data-lat="56.30"
+							    data-lon="9.25053893348951"
+							    data-zoom="6"
+							    data-gpx="gpx/nordseekuestenradweg_heerweg.gpx"
+							    data-fit-route="true">
+							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Tourdauer</th>
@@ -78,12 +107,6 @@
 								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
-							<div class="lightbox" id="lightbox" aria-hidden="true">
-								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
-								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
-								<img class="lightbox-img" id="lightboxImg" src="" alt="">
-								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
-							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Etappenlänge</th>
@@ -126,12 +149,6 @@
 								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
-							<div class="lightbox" id="lightbox" aria-hidden="true">
-								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
-								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
-								<img class="lightbox-img" id="lightboxImg" src="" alt="">
-								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
-							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Etappenlänge</th>
@@ -174,12 +191,6 @@
 								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
-							<div class="lightbox" id="lightbox" aria-hidden="true">
-								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
-								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
-								<img class="lightbox-img" id="lightboxImg" src="" alt="">
-								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
-							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Etappenlänge</th>
@@ -211,48 +222,11 @@
 			</main>
 			<div id="footer-placeholder"></div>
 		</div>
-		<button id="backToTop" title="Nach oben scrollen">⬆</button>
-		<script>
-		document.addEventListener("DOMContentLoaded", function () {
-		
-			// Back-to-top
-			const backToTopButton = document.getElementById("backToTop");
-		
-			if (backToTopButton) {
-				window.addEventListener("scroll", function () {
-					backToTopButton.style.display = window.scrollY > 0 ? "block" : "none";
-				});
-		
-				backToTopButton.addEventListener("click", function () {
-					window.scrollTo({
-						top: 0,
-						behavior: "smooth"
-					});
-				});
-			}
-		
-		
-			// Burger-Menü
-			const menuButton = document.querySelector(".menu-toggle");
-			const nav = document.querySelector("#mainNav");
-		
-			if (menuButton && nav) {
-				menuButton.addEventListener("click", function () {
-					const isOpen = nav.classList.toggle("open");
-					menuButton.setAttribute("aria-expanded", isOpen);
-				});
-			}
-		
-		
-			// Untermenüs
-			document.querySelectorAll("#mainNav .has-submenu > a").forEach(function (link) {
-				link.addEventListener("click", function (event) {
-					event.preventDefault();
-					link.parentElement.classList.toggle("open");
-				});
-			});
-		
-		});
-		</script>
+		<script src="header.js" defer></script>
+		<script src="footer.js" defer></script>
+		<script src="scroll-up.js" defer></script>
+		<script src="nordseekuestenradweg_haervejen_marker.js" defer></script>
+		<script src="karte.js" defer></script>
+		<script src="bildergalerie.js" defer></script>
 	</body>
 </html>
