@@ -168,6 +168,16 @@
 			    transform: translateY(-50%);
 			}
 			
+			/* Gesamten +X-Bereich anklickbar machen */
+			.bildgalerie .galerie-mehr {
+			    cursor: pointer;
+			}
+			
+			/* Overlay und Text dürfen Klicks nicht abfangen */
+			.bildgalerie .galerie-mehr::before,
+			.bildgalerie .galerie-mehr::after {
+			    pointer-events: none;
+			}
 
 /* Mobile Ansicht */
 @media (max-width: 820px) {
