@@ -6,13 +6,21 @@
 		<title>Unterkünfte</title>
 		<link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
+		<link href="reiseberichte.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 			crossorigin=""/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet.fullscreen@3.0.2/Control.FullScreen.css">
 		<script 
 			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 			crossorigin="">
+		</script>
+		<script 
+			src="https://unpkg.com/leaflet.fullscreen@3.0.2/Control.FullScreen.js">
+		</script>
+		<script 
+			src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js">
 		</script>
 		<style>
 			/* Map bei der Seite Unterkünfte */
@@ -53,148 +61,11 @@
 			</main>
 			<div id="footer-placeholder"></div>
 		</div>
-		<button id="backToTop" title="Nach oben scrollen">⬆</button>
-		<script> 
-		document.addEventListener("DOMContentLoaded", function () {
-			// Back-to-top
-			const backToTopButton = document.getElementById("backToTop");
-		
-			if (backToTopButton) {
-				window.addEventListener("scroll", function () {
-					backToTopButton.style.display = window.scrollY > 0 ? "block" : "none";
-				});
-		
-				backToTopButton.addEventListener("click", function () {
-					window.scrollTo({
-						top: 0,
-						behavior: "smooth"
-					});
-				});
-			}
-		
-		
-			// Burger-Menü
-			const menuButton = document.querySelector(".menu-toggle");
-			const nav = document.querySelector("#mainNav");
-		
-			if (menuButton && nav) {
-				menuButton.addEventListener("click", function () {
-					const isOpen = nav.classList.toggle("open");
-					menuButton.setAttribute("aria-expanded", isOpen);
-				});
-			}
-		
-		
-			// Untermenüs
-			document.querySelectorAll("#mainNav .has-submenu > a").forEach(function (link) {
-				link.addEventListener("click", function (event) {
-					event.preventDefault();
-					link.parentElement.classList.toggle("open");
-				});
-			});
-			  // 1. Karte initialisieren und auf Hamburg zentrieren
-			  const map = L.map('map').setView([50.50, 10.00], 5);
-			
-			  // 2. OpenStreetMap-Kachel-Layer hinzufügen
-			  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			    maxZoom: 19,
-			    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			  }).addTo(map);
-			
-			  // 3.A Marker: Funktion definieren
-				function createIcon(url, size = 20) {
-			    return L.icon({
-			        iconUrl: url,
-			        iconSize: [size, size],
-			        iconAnchor: [size/2, size],
-			        popupAnchor: [0, -size]
-			    });
-				}
-				
-			  // 3.B Marker: Icons erstellen
-    			const zeltIcon   = createIcon('img/icon/zelt.png');
-				
-			  // 3.C Marker: auf Karte hinzufügen
-				// Marker mit zeltIcon
-				L.marker([51.9307, 4.44482], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Stadscamping Rotterdam</b><br>Günstiger und sauberer Campingplatz<br>Nicht weit bis zum Stadtzentrum");
-				L.marker([52.1111, 4.3432], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping Duinhorst</b><br>Sauberer Campingplatz mit kleinen 'Inseln' und Pool<br>Nicht weit bis zum Stadtzentrum");
-				L.marker([52.5261, 4.7401], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Minicamping de Swaenebloem</b><br>Einfacher und sauberer Campingplatz<br>Sehr nette und hilfsbereite Betreiber");
-				L.marker([52.8002, 4.7278], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping 't Ananas</b><br>Einfacher Campingplatz<br>Verdreckte Sanitärräume ohne Toilettenpapier");
-				L.marker([53.1212, 5.4556], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>De Nije Trije</b><br>Günstiger und sauberer Campingplatz<br>Sehr idyllisch und nette Betreiber");
-				L.marker([53.3415, 5.8896], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping de Blijer Wadden</b><br>Günstiger und sauberer Campingplatz<br>Sehr nette Betreiber");
-				L.marker([53.3851, 6.5607], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camp Zuiderhorn</b><br>Günstiger und einfacher Campingplatz<br>Mit kleinem Spielplatz und Aufenthaltsraum");
-				L.marker([53.3013, 7.032], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>MarinaPark Zeestrand</b><br>Sauberer Campingplatz<br>Relativ teuer");
-				L.marker([53.2247, 7.4191], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Ems-Marina-Camping</b><br>Günstiger und einfacher Campingplatz<br>Nicht weit bis nach Leer");
-				L.marker([53.3471, 7.0376], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz am Knock</b><br>Sauberer und günstiger Campingplatz");
-				L.marker([53.6046, 7.1394], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Nordsee-Camp Norddeich</b><br>Sauberer Campingplatz<br>Relativ teuer");
-				L.marker([53.6987, 7.8050], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz Boyungs</b><br>Günstiger und sauberer Campingplatz<br>Sehr nette Betreiber");
-				L.marker([53.4502, 8.1178], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz Rennweide Dangast</b><br>Günstiger und sauberer Campingplatz<br>Sehr schöne Aussicht auf den Jadebusen");
-				L.marker([53.5975, 8.3567], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz Fischerdorf</b><br>Günstiger und sauberer Campingplatz");
-				L.marker([53.7657, 8.5446], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz Cappel Neufeld</b><br>Günstiger und sauberer Campingplatz<br>Aufenthaltsraum und Küche für Zeltende");
-				L.marker([53.6250, 9.2029], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Freizeit-und Campingpark Geesthof</b><br>Günstiger und sauberer Campingplatz<br>Sehr familienfreundlich");
-				L.marker([49.8126, 6.4315], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingpark Echternacherbrück</b><br>Günstiger und sauberer Campingplatz<br>Direkt an der Grenze zu Luxemburg");
-				L.marker([49.7808, 6.3316], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping La Pinède Consdorf</b><br>Günstiger und sauberer Campingplatz<br>Auf einem Berg gelegen");
-				L.marker([49.8003, 6.1983], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping Auf Kengert</b><br>Günstiger und sauberer Campingplatz<br>Mit eigener Zeltwiese");
-				L.marker([49.8393, 6.2879], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping Park Beaufort</b><br>Günstiger und sauberer Campingplatz<br>Mit eigener Zeltwiese");
-				L.marker([49.65527868689116, 7.182204352369358], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingpark Waldwiesen</b><br>Günstiger und sauberer Campingplatz<br>Einfache Sanitärräume");
-				L.marker([49.794921888606645, 7.7544240051025435], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping Nahetal</b><br>Schöner und sauberer Campingplatz<br>Direkt an der Nahe");
-				L.marker([49.794921888606645, 7.7544240051025435], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Camping Nahetal</b><br>Schöner und sauberer Campingplatz<br>Direkt an der Nahe");
-				L.marker([50.248617691442135, 7.62590191341509], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingpark Sonneneck</b><br>Schöner und sauberer Campingplatz<br>Direkt an der Nahe und mit Pool");
-				L.marker([50.575852549828234, 7.251629200802653], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz Goldene Meile</b><br>Schöner und sauberer Campingplatz<br>Schwieriger Zugang vom Radweg");
-				L.marker([51.038781976560536, 6.946522147215979], { icon: zeltIcon })
-					.addTo(map)
-					.bindPopup("<b>Campingplatz Köln-Kasselberg</b><br>Einfacher und günstig im Kleingartenverein<br>Keine Reservierung, Platz für 3 Zelte direkt an der Nahe");
-			});
-	   </script>
+		<script src="header.js" defer></script>
+		<script src="footer.js" defer></script>
+		<script src="scroll-up.js" defer></script>
+		<script src="unterkuenfte_marker.js" defer></script>
+		<script src="karte.js" defer></script>
+		<script src="bildergalerie.js" defer></script>
 	</body>
 </html>
