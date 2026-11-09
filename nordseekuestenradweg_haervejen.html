@@ -284,26 +284,10 @@
 				</div>
 			</footer>
 		</div>
-		<button id="backToTop" title="Nach oben scrollen">⬆</button>
 		<script>
 			document.addEventListener("DOMContentLoaded", function () {
 		
-			// Back-to-top
-			const backToTopButton = document.getElementById("backToTop");
-		
-			if (backToTopButton) {
-				window.addEventListener("scroll", function () {
-					backToTopButton.style.display = window.scrollY > 0 ? "block" : "none";
-				});
-		
-				backToTopButton.addEventListener("click", function () {
-					window.scrollTo({
-						top: 0,
-						behavior: "smooth"
-					});
-				});
-			}
-		
+			
 			// Burger-Menü
 			const menuButton = document.querySelector(".menu-toggle");
 			const nav = document.querySelector("#mainNav");
@@ -535,5 +519,6 @@
 				}).addTo(map);
 			});
 		</script>
+		<script src="scroll-up.js" defer></script>
 	</body>
 </html>
