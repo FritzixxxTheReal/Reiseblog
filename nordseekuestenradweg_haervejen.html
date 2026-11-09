@@ -152,12 +152,6 @@
 								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
-							<div class="lightbox" id="lightbox" aria-hidden="true">
-								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
-								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
-								<img class="lightbox-img" id="lightboxImg" src="" alt="">
-								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
-							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Etappenlänge</th>
@@ -200,12 +194,6 @@
 								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
-							<div class="lightbox" id="lightbox" aria-hidden="true">
-								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
-								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
-								<img class="lightbox-img" id="lightboxImg" src="" alt="">
-								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
-							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Etappenlänge</th>
@@ -248,12 +236,6 @@
 								</div>
 								<figcaption>Klicke auf die Bilder für eine größere Ansicht!</figcaption>
 							</figure>
-							<div class="lightbox" id="lightbox" aria-hidden="true">
-								<button class="lightbox-close" type="button" aria-label="Schließen">&times;</button>
-								<button class="lightbox-prev" type="button" aria-label="Vorheriges Bild">&#10094;</button>
-								<img class="lightbox-img" id="lightboxImg" src="" alt="">
-								<button class="lightbox-next" type="button" aria-label="Nächstes Bild">&#10095;</button>
-							</div>
 							<table class="detail-table">
 								<tr>
 									<th scope="row">Etappenlänge</th>
@@ -314,85 +296,11 @@
 					link.parentElement.classList.toggle("open");
 				});
 			});
-
-			// Bildergalerie //
-				 const galleryImages = Array.from(document.querySelectorAll(".bildgalerie img"));
-					const lightbox = document.getElementById("lightbox");
-					const lightboxImg = document.getElementById("lightboxImg");
-					const closeButton = document.querySelector(".lightbox-close");
-					const prevButton = document.querySelector(".lightbox-prev");
-					const nextButton = document.querySelector(".lightbox-next");
-					
-					/* Anzahl der zusätzlich vorhandenen Bilder automatisch anzeigen */
-					const galerieMehr = document.querySelector(".galerie-mehr");
-					
-					if (galerieMehr) {
-					    const bildAnzahl = galleryImages.length;
-					    const versteckteBilder = bildAnzahl - 3;
-					
-					    if (versteckteBilder > 0) {
-					        galerieMehr.setAttribute("data-count", "+" + versteckteBilder);
-					    } else {
-						    galerieMehr.classList.remove("galerie-mehr");
-						}
-					}
-				
-				    let currentIndex = 0;
-				
-				    function openLightbox(index) {
-				        currentIndex = index;
-				        const image = galleryImages[currentIndex];
-				
-				        lightboxImg.src = image.dataset.full || image.src;
-				        lightboxImg.alt = image.alt;
-				
-				        lightbox.classList.add("active");
-				        lightbox.setAttribute("aria-hidden", "false");
-				    }
-				
-				    function closeLightbox() {
-				        lightbox.classList.remove("active");
-				        lightbox.setAttribute("aria-hidden", "true");
-				        lightboxImg.src = "";
-				    }
-				
-				    function showPrev() {
-				        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-				        openLightbox(currentIndex);
-				    }
-				
-				    function showNext() {
-				        currentIndex = (currentIndex + 1) % galleryImages.length;
-				        openLightbox(currentIndex);
-				    }
-				
-				    galleryImages.forEach(function (image, index) {
-				        image.addEventListener("click", function () {
-				            openLightbox(index);
-				        });
-				    });
-				
-				    closeButton.addEventListener("click", closeLightbox);
-				    prevButton.addEventListener("click", showPrev);
-				    nextButton.addEventListener("click", showNext);
-				
-				    lightbox.addEventListener("click", function (event) {
-				        if (event.target === lightbox) {
-				            closeLightbox();
-				        }
-				    });
-				
-				    document.addEventListener("keydown", function (event) {
-				        if (!lightbox.classList.contains("active")) return;
-				
-				        if (event.key === "Escape") closeLightbox();
-				        if (event.key === "ArrowLeft") showPrev();
-				        if (event.key === "ArrowRight") showNext();
-				    });
 			});
 		</script>
 		<script src="scroll-up.js" defer></script>
 		<script src="nordseekuestenradweg_haervejen_marker.js" defer></script>
 		<script src="karte.js" defer></script>
+		<script src="bildergalerie.js" defer></script>
 	</body>
 </html>
