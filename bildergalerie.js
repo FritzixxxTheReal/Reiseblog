@@ -97,13 +97,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 galerieMehr.classList.remove("galerie-mehr");
             }
         }
-
+        
         // Bilder anklickbar machen
         bilder.forEach(function (image, index) {
             image.addEventListener("click", function () {
                 openLightbox(bilder, index);
             });
         });
+
+        // Auch den gesamten +X-Bereich anklickbar machen
+        if (galerieMehr) {
+            galerieMehr.style.cursor = "pointer";
+
+            galerieMehr.addEventListener("click", function (event) {
+                // Klicks auf das Bild werden bereits oben verarbeitet
+                if (event.target.tagName === "IMG") return;
+
+                const bild = galerieMehr.querySelector("img");
+                const index = bilder.indexOf(bild);
+
+                if (index !== -1) {
+                    openLightbox(bilder, index);
+                }
+            });
+        }
 
     });
 
